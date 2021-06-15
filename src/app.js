@@ -1,4 +1,5 @@
 import express from "express";
+import UserRoutes from '../src/api/routes/user'
 
 const app = express();
 
@@ -13,6 +14,7 @@ mongoose.connect("mongodb://localhost:27017/testing12", {
 
 //Register global middleware
 SetglobalMiddleware(app);
+app.use("/api", UserRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running at PORT ${port}`);
